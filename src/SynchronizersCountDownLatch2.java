@@ -3,7 +3,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class CountDownLatch2 {
+public class SynchronizersCountDownLatch2 {
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();

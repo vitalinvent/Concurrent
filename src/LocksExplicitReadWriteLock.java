@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ExplicitReadWriteLocks {
+public class LocksExplicitReadWriteLock {
 
     // Equivalent to Intrinsic Locks
     private ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
@@ -39,7 +39,7 @@ public class ExplicitReadWriteLocks {
 
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
-        ExplicitReadWriteLocks self = new ExplicitReadWriteLocks();
+        LocksExplicitReadWriteLock self = new LocksExplicitReadWriteLock();
         // Readers
         for (int i = 0; i < 100; i++) {
             executor.submit(() -> {

@@ -1,6 +1,6 @@
 import java.util.concurrent.CountDownLatch;
 
-public class CountDownLatch1 {
+public class SynchronizersCountDownLatch1 {
     //Создаем CountDownLatch на 8 "условий"
     private static final CountDownLatch START = new CountDownLatch(8);
     //Условная длина гоночной трассы
