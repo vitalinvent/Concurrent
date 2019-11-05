@@ -7,6 +7,12 @@ public class SynchronizersSemaphore1 {
 
     public static void main(String[] args) {
 
+//        необходимы, когда нужно ограничить доступ к некоторому общему ресурсу.
+//        В конструктор этого класса (Semaphore(int permits) или
+//        Semaphore(int permits, boolean fair)) обязательно передается количество
+//        потоков, которому семафор будет разрешать одновременно использовать
+//        заданный ресурс.
+
         ExecutorService executor = Executors.newCachedThreadPool();
         Semaphore semaphore = new Semaphore(3);
 
