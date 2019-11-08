@@ -4,7 +4,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SynchronizersCyclicBarrier {
+public class SynchronizersCyclicBarrier1 {
 
     public static void main(String[] args) {
 
