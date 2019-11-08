@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.*;
 
-public class Executors {
+public class Executors_ {
 
 
 //    newSingleThreadExecutor() использует только один поток, что равнозначно:
