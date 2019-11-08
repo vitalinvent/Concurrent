@@ -11,9 +11,27 @@ public class Atomics {
 //    добавления на заданную величину, а также инкремент/декремент.
 
 
-    /*
-     * A Counter using AtomicInteger
+    /**
+     * Atomics can be used from the java.util.concurrent.atomic.* package.
+     *
+     * An atomic operation is a compound action that totally completes out totally
+     * fails, not supporting inconsistent values or results during it's execution.
+     *
+     * The classes in this package supports atomic operations on single variables,
+     * having get and set (read and write) methods that behave like a volatile
+     * variable.
+     *
+     * The compareAndSet are commonly used in non-blocking algorithms. They
+     * basically tries to set a new value to a specified field, and it returns a
+     * boolean indicating success or not. All atomic, only blocking briefly.
+     *
+     * Interesting classes in this package are: AtomicBoolean, AtomicLong,
+     * AtomicReference<T>, AtomicMarkableReference<T> and
+     * AtomicReferenceFieldUpdater<T, V>.
+     *
+     *
      */
+
     static class AtomicCounter {
         private AtomicInteger atomicInteger = new AtomicInteger(0);
 

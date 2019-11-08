@@ -4,6 +4,27 @@ import java.util.concurrent.*;
 
 public class CollectionsConcurrentCollections {
 
+    //ConcurrentHashMap добавленные значения атомаронй операцией putIfAbsent (CAS) видны сразу
+
+    /**
+     * Map for Concurrent access. Sacrifices some aspects of synchronization to
+     * achieve better performance.
+     *
+     * Locks it's values with Lock Striping.
+     *
+     * Lock Striping divides the protected region through several locks.
+     *
+     * - Don't throw ConcurrentModificationException
+     *
+     * - size() and isEmpty() can be incorrect. Don't rely on them.
+     *
+     * - Supports atomic operations, don't need client side locking.
+     *
+     * - Readers can access concurrently, and iterator have weak consistency.
+     *
+     * - Just a few Writers can modify it.
+     */
+
     public static void usingConcurrentHashMap() {
         System.out.println("=== ConcurrentHashMap ===");
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -24,7 +45,7 @@ public class CollectionsConcurrentCollections {
                 });
             } else {
                 // read
-                executor.execute(() -> System.out.println("Printed " + valuesPerUuid.values().toString()));
+                executor.execute(() -> System.out.println("Printed " + valuesPerUuid.values()));
             }
         }
 
@@ -53,6 +74,7 @@ public class CollectionsConcurrentCollections {
      * Supports atomic operations.
      *
      */
+
     public static void usingCopyOnWriteArrayList() {
         System.out.println("=== CopyOnWriteArrayList ===");
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -174,8 +196,8 @@ public class CollectionsConcurrentCollections {
     }
 
     public static void main(String[] args) {
-        usingConcurrentHashMap();
+//        usingConcurrentHashMap();
         usingCopyOnWriteArrayList();
-        usingBlockingQueue();
+//        usingBlockingQueue();
     }
 }

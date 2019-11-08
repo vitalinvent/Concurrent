@@ -4,7 +4,30 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Synchronized collections synchronizes every public method to encapsulate
+ * their state.
+ *
+ * They're thread-safe, but if you use compound actions like size+add, they'rent
+ * anymore, because these operations needs to be atomic.
+ *
+ * It's required to use client side locking for compound actions.
+ *
+ * Synchronized collections doesn't support concurrent iteration+modification.
+ * They'll throw ConcurrentModificationException
+ *
+ */
+
 public class CollectionsSynchronizedCollections {
+
+    /**
+     * Use client-side locking to guard compound actions; contains and add are
+     * synchronized, but this doesn't help when you need to use both in a compounded
+     * manner.
+     *
+     * It's just an easy example to explain the problem, sets are better for this
+     * than a vector/list.
+     */
 
     public static void insertIfAbsent(Vector<Long> list, Long value) {
         synchronized (list) {
